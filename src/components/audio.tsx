@@ -4,9 +4,9 @@ import { AudioProps } from "@helpers/interfaces";
 
 export const Audio: FC<AudioProps> = ({ src }) => (
   <Component>
-    <PlayerAudio controls>
+    <AudioPlayer controls>
       <source src={src} type="audio/ogg" />
-    </PlayerAudio>
+    </AudioPlayer>
   </Component>
 );
 
@@ -18,7 +18,7 @@ const Component = styled.div`
   justify-content: center;
 `;
 
-const PlayerAudio = styled.audio`
+const AudioPlayer = styled.audio`
   width: 60%;
 `;
 

@@ -7,7 +7,7 @@ export const shouldHideCharacter = (hideCharacter: boolean, text: string) => {
 };
 
 export const getContent = async () => {
-  const number = 1;
+  const number = randomNumber(1, 2);
   const fetchText = await fetch(`http://localhost:3000/api/text/${number}`);
   const text = await fetchText.text();
 
@@ -15,4 +15,8 @@ export const getContent = async () => {
     audioSrc: `/contents/${number}/audio.mp3`,
     text,
   };
+};
+
+export const randomNumber = (start: number, end: number) => {
+  return Math.round(Math.random() * (start - end) + end);
 };

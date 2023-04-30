@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export const text = (req: NextApiRequest, resp: NextApiResponse) => {
-  const number: any = req.query.text ?? "1";
+  const number: any = req.query.text;
 
   const pathText = path.resolve(
     __dirname,
