@@ -1,5 +1,5 @@
-export const BoardWriting = () => {
-  return <h1>BoardWriting</h1>;
-};
+import TextArea from "./textarea";
+
+export const BoardWriting = () => <TextArea />;
 
 export default BoardWriting;

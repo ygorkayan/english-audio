@@ -1,5 +1,25 @@
-export const Audio = () => {
-  return <h1>Audio</h1>;
-};
+import { FC } from "react";
+import styled from "styled-components";
+import { AudioProps } from "@helpers/interfaces";
+
+export const Audio: FC<AudioProps> = ({ src }) => (
+  <Component>
+    <PlayerAudio controls>
+      <source src={src} type="audio/ogg" />
+    </PlayerAudio>
+  </Component>
+);
+
+const Component = styled.div`
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const PlayerAudio = styled.audio`
+  width: 60%;
+`;
 
 export default Audio;
