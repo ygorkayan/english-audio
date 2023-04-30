@@ -1,1 +1,15 @@
-2
+Hi! My name’s Callum. I’m from England.
+Hello, Callum. Nice to meet you. I’m Laura. I’m from America.
+Are you from New York?
+No, I’m not. I’m from Boston.
+Are you a student?
+No, I’m a computer programmer. Are you a student?
+Yes, I am.
+Where are you from in England?
+London.
+What’s your last name, Callum?
+Westbrook. I’m Callum Westbrook. And you?
+Price. Laura Price.
+Well, erm, nice to meet you, Laura. See you later.
+Yes, see you in class. C: OK, then. Bye.
+Bye.
