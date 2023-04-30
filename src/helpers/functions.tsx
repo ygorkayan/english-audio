@@ -7,7 +7,7 @@ export const shouldHideCharacter = (hideCharacter: boolean, text: string) => {
 };
 
 export const getContent = async () => {
-  const number = randomNumber(1, 2);
+  const number = randomNumber(1, 5);
   const fetchText = await fetch(`http://localhost:3000/api/text/${number}`);
   const text = await fetchText.text();
 
