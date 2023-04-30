@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface IndexProps {
+  text: string;
   audioSrc: string;
-  boardReadingSrc: string;
 }
 
 export interface BoardReadingProps {

@@ -1,21 +1,24 @@
 import { FC, useState } from "react";
+import styled from "styled-components";
 import Audio from "@components/audio";
 import Button from "@components/button";
 import BoardWriting from "@components/board-writing";
 import BoardReading from "@components/board-reading";
-import styled, { createGlobalStyle } from "styled-components";
 import { IndexProps } from "@helpers/interfaces";
+import { getContent, shouldHideCharacter } from "@helpers/functions";
 
-export const Index: FC<IndexProps> = ({ audioSrc, boardReadingSrc }) => {
-  const [hideCharacter, setHideCharacter] = useState(false);
+export const Index: FC<IndexProps> = ({ audioSrc, text }) => {
+  const [hideCharacter, setHideCharacter] = useState(true);
 
   return (
     <Component>
-      <GlobalStyle />
       <Audio src={audioSrc} />
       <ContainerBoard>
         <BoardWriting />
-        <BoardReading hideCharacter={hideCharacter} text={boardReadingSrc} />
+        <BoardReading
+          hideCharacter={hideCharacter}
+          text={shouldHideCharacter(hideCharacter, text)}
+        />
       </ContainerBoard>
       <Button
         hideCharacter={hideCharacter}
@@ -26,20 +29,8 @@ export const Index: FC<IndexProps> = ({ audioSrc, boardReadingSrc }) => {
 };
 
 export const getServerSideProps = async () => ({
-  props: {
-    audioSrc: "/contents/teste.mp3",
-    boardReadingSrc: "ola1234",
-  },
+  props: getContent(),
 });
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-`;
 
 const Component = styled.div`
   display: flex;

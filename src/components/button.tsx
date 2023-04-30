@@ -7,7 +7,7 @@ export const Button: FC<ButtonProps> = ({
   setHideCharacter,
 }) => (
   <Component onClick={() => setHideCharacter((oldValue) => !oldValue)}>
-    {hideCharacter ? "Hide" : "Reveal"}
+    {hideCharacter ? "Reveal" : "Hide"}
   </Component>
 );
 
