@@ -1,36 +1,26 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import Audio from "@components/audio";
 import Button from "@components/button";
-import BoardWriting from "@components/board-writing";
-import BoardReading from "@components/board-reading";
+import TextArea from "@components/textarea";
 import { IndexProps } from "@helpers/interfaces";
-import { getContent, shouldHideCharacter } from "@helpers/functions";
+import withIndex from "@helpers/hoc-index";
 
-export const Index: FC<IndexProps> = ({ audioSrc, text }) => {
-  const [hideCharacter, setHideCharacter] = useState(true);
-
-  return (
-    <Component>
-      <Audio src={audioSrc} />
-      <ContainerBoard>
-        <BoardWriting />
-        <BoardReading
-          hideCharacter={hideCharacter}
-          text={shouldHideCharacter(hideCharacter, text)}
-        />
-      </ContainerBoard>
-      <Button
-        hideCharacter={hideCharacter}
-        setHideCharacter={setHideCharacter}
-      />
-    </Component>
-  );
-};
-
-export const getServerSideProps = async () => ({
-  props: getContent(),
-});
+export const Index: FC<IndexProps> = ({
+  audioSrc,
+  text,
+  hideCharacter,
+  setHideCharacter,
+}) => (
+  <Component>
+    <Audio src={audioSrc} />
+    <ContainerBoard>
+      <TextArea />
+      <TextArea readOnly={true} text={text} />
+    </ContainerBoard>
+    <Button hideCharacter={hideCharacter} setHideCharacter={setHideCharacter} />
+  </Component>
+);
 
 const Component = styled.div`
   display: flex;
@@ -44,4 +34,4 @@ const ContainerBoard = styled.div`
   justify-content: space-around;
 `;
 
-export default Index;
+export default withIndex(Index);

@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction } from "react";
 export interface IndexProps {
   text: string;
   audioSrc: string;
+  hideCharacter: boolean;
+  setHideCharacter: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface BoardReadingProps {
