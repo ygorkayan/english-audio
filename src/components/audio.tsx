@@ -5,7 +5,7 @@ import { AudioProps } from "@helpers/interfaces";
 export const Audio: FC<AudioProps> = ({ src }) => (
   <Component>
     <AudioPlayer controls>
-      <source src={src} type="audio/ogg" />
+      <source src={src} type="audio/mpeg" />
     </AudioPlayer>
   </Component>
 );

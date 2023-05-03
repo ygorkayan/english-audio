@@ -10,7 +10,7 @@ export const withIndex = (Component: FC<IndexProps>) => () => {
 
   const componentsProps = {
     text: shouldHideCharacter(hideCharacter, text),
-    audioSrc: audioSrc,
+    audioSrc,
     hideCharacter: hideCharacter,
     setHideCharacter: setHideCharacter,
   };
