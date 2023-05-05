@@ -25,3 +25,9 @@ export interface TextAreaProps {
   text?: string;
   readOnly?: boolean;
 }
+
+export interface UseContent {
+  audioSrc: string;
+  text: string;
+  loading: boolean;
+}

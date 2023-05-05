@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
+import { UseContent } from "./interfaces";
 
 export const shouldHideCharacter = (hideCharacter: boolean, text: string) => {
   if (hideCharacter) {
@@ -8,20 +9,28 @@ export const shouldHideCharacter = (hideCharacter: boolean, text: string) => {
   return text;
 };
 
-export const useContent = () => {
-  const [text, setText] = useState("");
-  const number = randomNumber(1, 5);
+export const useContent = (): UseContent => {
+  const [state, setState] = useState<UseContent>({
+    text: "",
+    audioSrc: "",
+    loading: true,
+  });
 
-  useEffect(() => {
+  useMemo(() => {
+    const number = randomNumber(1, 5);
+
     fetch(`http://localhost:3000/api/text/${number}`)
       .then((resp) => resp.text())
-      .then((newText) => setText(newText));
+      .then((newText) => {
+        setState({
+          text: newText,
+          audioSrc: `/contents/${number}/audio.mp3`,
+          loading: false,
+        });
+      });
   }, []);
 
-  return {
-    audioSrc: `/contents/${number}/audio.mp3`,
-    text,
-  };
+  return { ...state };
 };
 
 export const randomNumber = (start: number, end: number) => {
