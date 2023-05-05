@@ -17,7 +17,7 @@ export const useContent = (): UseContent => {
   });
 
   useMemo(() => {
-    const number = randomNumber(1, 5);
+    const number = randomNumber(1, 6);
 
     fetch(`http://localhost:3000/api/text/${number}`)
       .then((resp) => resp.text())
