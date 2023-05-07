@@ -25,7 +25,7 @@ const getData = (result: getlengthPromise): Promise<getDataPromisse> => {
   return new Promise((resolver, _) =>
     readFile(local, (_, result) =>
       resolver({
-        text: result.toString(),
+        text: result?.toString(),
         audioSrc: `/contents/${number}/audio.mp3`,
       })
     )
