@@ -17,22 +17,18 @@ export const useContent = (): UseContent => {
   });
 
   useMemo(() => {
-    const number = randomNumber(1, 14);
-
-    fetch(`http://localhost:3000/api/text/${number}`)
+    fetch(`http://localhost:3000/api/text`)
       .then((resp) => resp.text())
-      .then((newText) => {
+      .then((response) => {
+        const objectResponse = JSON.parse(response);
+
         setState({
-          text: newText,
-          audioSrc: `/contents/${number}/audio.mp3`,
+          text: objectResponse.text,
+          audioSrc: objectResponse.audioSrc,
           loading: false,
         });
       });
   }, []);
 
   return { ...state };
-};
-
-export const randomNumber = (start: number, end: number) => {
-  return Math.round(Math.random() * (start - end) + end);
 };
